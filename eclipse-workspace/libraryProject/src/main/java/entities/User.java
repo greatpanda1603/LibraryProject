@@ -1,6 +1,8 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.Set;
+
 import javax.persistence.*;
 import lombok.*;
 
@@ -28,5 +30,8 @@ public class User {
 
 	@Column(name = "TERMINATION_DATE")
 	private LocalDate terminationDate;
+	
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "user")
+	private Set<Usage> usages;
 
 }

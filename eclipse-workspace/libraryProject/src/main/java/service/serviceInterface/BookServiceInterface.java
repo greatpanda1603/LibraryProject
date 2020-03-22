@@ -1,15 +1,23 @@
 package service.serviceInterface;
 
+import java.util.List;
+
 import entities.Book;
 
 public interface BookServiceInterface {
 
-	void createBook(Book book);
+	void create(Book book);
 
-	Book getBookById(Long book_id);
+	Book getById(Long book_id);
 
-	void updateBookById();
+	void updateById();
 
-	void deleteBookById(Long book_id);
+	void deleteById(Long book_id);
+	
+	List<Book> getBookByAuthorId(List<Long> authorIds);
+	
+	List<Book> getBookByCoauthorId(List<Long> authorIds);
+	
+	List<Book> getAllBooksPublishedAfterUkraineProclaimedIndependence();
 
 }

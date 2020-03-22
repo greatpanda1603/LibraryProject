@@ -6,25 +6,25 @@ import service.serviceInterface.UsageServiceInterface;
 public class UsageService implements UsageServiceInterface {
 
 	@Override
-	public void createUsage(Usage usage) {
+	public void create(Usage usage) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Usage getUsageById(Long usage_id) {
+	public Usage getById(Long usage_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void updateUsageById() {
+	public void updateById() {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteUsageById(Long usage_id) {
+	public void deleteById(Long usage_id) {
 		// TODO Auto-generated method stub
 
 	}

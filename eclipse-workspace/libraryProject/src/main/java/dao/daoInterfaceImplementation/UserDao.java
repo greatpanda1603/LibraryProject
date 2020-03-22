@@ -12,36 +12,36 @@ import util.HibernateUtil;
 public class UserDao implements UserDaoInterfcae {
 
 	@Override
-	public void addUser(User user) {
+	public void add(User user) {
 
 	}
 
 	@Override
-	public User fetchUserById(Long user_id) {
+	public User fetchById(Long user_id) {
 
 		return null;
 
 	}
 
 	@Override
-	public void updateUserById(Long user_id, LocalDate terminationDate) {
+	public void updateById(Long user_id, LocalDate terminationDate) {
 
 	}
 
 	@Override
-	public void deleteUserById(Long user_id) {
+	public void deleteById(Long user_id) {
 
 	}
 
 	@Override
-	public Optional<User> getUserById(Long user_id) {
+	public Optional<User> getById(Long user_id) {
 
 		return null;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<User> getAllUsers() {
+	public List<User> getAll() {
 		Session session = null;
 		List<User> users = null;
 		try {

@@ -1,32 +1,37 @@
 package service.serviceInterfaceImplementation;
 
+import java.util.List;
+import dao.daoInterfaceImplementation.AuthorDao;
 import entities.Author;
 import service.serviceInterface.AuthorServiceInterface;
 
 public class AuthorService implements AuthorServiceInterface {
 
 	@Override
-	public void createAuthor(Author author) {
-		// TODO Auto-generated method stub
+	public void create(Author author) {
 
 	}
 
 	@Override
-	public Author getAuthorById(Long author_id) {
-		// TODO Auto-generated method stub
+	public Author getById(Long author_id) {
+
 		return null;
 	}
 
 	@Override
-	public void updateAuthorById() {
-		// TODO Auto-generated method stub
+	public void updateById() {
 
 	}
 
 	@Override
-	public void deleteAuthorById(Long author_id) {
-		// TODO Auto-generated method stub
+	public void deleteById(Long author_id) {
 
+	}
+
+	@Override
+	public List<Long> getIdByName(String firstName, String lastName) {
+		List<Long> authorIds = new AuthorDao().getIdByName(firstName, lastName);
+		return authorIds;
 	}
 
 }

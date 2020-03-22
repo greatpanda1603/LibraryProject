@@ -22,7 +22,7 @@ public class Book {
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "book")
 	private Set<BookExample> bookExamples;
-	
+
 	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinTable(name = "BOOK_AUTHOR", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID"))
 	private Author author;

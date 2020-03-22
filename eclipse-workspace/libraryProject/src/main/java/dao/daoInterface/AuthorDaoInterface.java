@@ -6,16 +6,18 @@ import entities.Author;
 
 public interface AuthorDaoInterface {
 
-	void addAuthor(Author author);
+	void add(Author author);
 
-	Author fetchAuthorById(Long author_id);
+	Author fetchById(Long author_id);
 
-	void updateAuthorById();
+	void updateById();
 
-	void deleteAuthorById(Long author_id);
+	void deleteById(Long author_id);
 
-	Optional<Author> getAuthorById(Long author_id);
+	Optional<Author> getById(Long author_id);
+	
+	List<Long> getIdByName(String firstName, String lastName);
 
-	List<Author> getAllAuthors();
+	List<Author> getAll();
 
 }

@@ -7,16 +7,16 @@ import entities.Usage;
 
 public interface UsageDaoInterface {
 
-	void addUsageRecord(Usage usage);
+	void add(Usage usage);
 
-	Usage fetchUsageById(Long usage_id);
+	Usage fetchById(Long usage_id);
 
-	void updateUsageRecord(Long usage_id, LocalDate returnDate);
+	void update(Long usage_id, LocalDate returnDate);
 
-	void deleteUsageRecord(Long usage_id);
+	void delete(Long usage_id);
 
-	Optional<Usage> getUsageRecordById(Long usage_id);
+	Optional<Usage> getById(Long usage_id);
 
-	List<Usage> getAllUsageRecords();
+	List<Usage> getAll();
 
 }

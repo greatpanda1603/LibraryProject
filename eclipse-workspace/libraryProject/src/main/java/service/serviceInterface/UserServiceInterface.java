@@ -5,14 +5,16 @@ import entities.User;
 
 public interface UserServiceInterface {
 
-	void createUser(User user);
+	void create(User user);
 
-	User getUserById(Long user_id);
+	User getById(Long user_id);
 
-	void updateUserById(Long user_id, LocalDate terminationDate);
+	void updateById(Long user_id, LocalDate terminationDate);
 
-	void deleteUserById(Long user_id);
+	void deleteById(Long user_id);
 
 	Double getAverageUsersAge();
+	
+	Double getAverageNumOfUserActivities();
 
 }

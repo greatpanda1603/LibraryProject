@@ -6,16 +6,16 @@ import entities.BookExample;
 
 public interface BookExampleDaoInterface {
 	
-	void addBookExample(BookExample bookExample);
+	void add(BookExample bookExample);
 
-	BookExample fetchBookExampleById(Long bookExample_id);
+	BookExample fetchById(Long bookExample_id);
 
-	void updateBookExampleById();
+	void updateById();
 
-	void deleteBookExampleById(Long bookExample_id);
+	void deleteById(Long bookExample_id);
 
-	Optional<BookExample> getBookExampleById(Long bookExample_id);
+	Optional<BookExample> getById(Long bookExample_id);
 
-	List<BookExample> getAllBookExamples();
+	List<BookExample> getAll();
 
 }

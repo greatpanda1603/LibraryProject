@@ -4,12 +4,12 @@ import entities.BookExample;
 
 public interface BookExampleServiceInterface {
 	
-	void createBookExample(BookExample bookExample);
+	void create(BookExample bookExample);
 
-	BookExample getBookExampleById(Long bookExample_id);
+	BookExample getById(Long bookExample_id);
 
-	void updateBookExampleById();
+	void updateById();
 
-	void deleteBookExampleById(Long bookExample_id);
+	void deleteById(Long bookExample_id);
 
 }

@@ -1,15 +1,18 @@
 package service.serviceInterface;
 
+import java.util.List;
 import entities.Author;
 
 public interface AuthorServiceInterface {
 	
-	void createAuthor(Author author);
+	void create(Author author);
 
-	Author getAuthorById(Long author_id);
+	Author getById(Long author_id);
 
-	void updateAuthorById();
+	void updateById();
 
-	void deleteAuthorById(Long author_id);
+	void deleteById(Long author_id);
+
+	List<Long> getIdByName(String firstName, String lastName);
 
 }

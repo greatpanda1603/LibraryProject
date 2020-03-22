@@ -8,17 +8,17 @@ import entities.User;
 
 public interface UserDaoInterfcae {
 
-	void addUser(User user);
+	void add(User user);
 
-	User fetchUserById(Long user_id);
+	User fetchById(Long user_id);
 
-	void updateUserById(Long user_id, LocalDate terminationDate);
+	void updateById(Long user_id, LocalDate terminationDate);
 
-	void deleteUserById(Long user_id);
+	void deleteById(Long user_id);
 
-	Optional<User> getUserById(Long user_id);
+	Optional<User> getById(Long user_id);
 
-	List<User> getAllUsers();
+	List<User> getAll();
 
 	List<Book> getUserReadingHistory(Long user_id);
 

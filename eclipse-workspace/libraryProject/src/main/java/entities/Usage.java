@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Table(name = "LIBRARY_USAGE")
 public class Usage {
 
 	@Id
@@ -17,7 +17,7 @@ public class Usage {
 	@Column(name = "USAGE_ID")
 	private Long usage_id;
 
-	@Column(name = "TAKE_DATE")
+	@Column(name = "TAKE_DATE", nullable = false)
 	private LocalDate takeDate;
 
 	@Column(name = "RETURN_DATE")

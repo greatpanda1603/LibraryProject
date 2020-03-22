@@ -1,6 +1,5 @@
 package entities;
 
-import java.time.LocalDate;
 import java.util.Set;
 import javax.persistence.*;
 import lombok.*;
@@ -20,13 +19,12 @@ public class BookExample {
 	private Long bookExample_id;
 
 	@Column(name = "PUBLISHING_YEAR", nullable = false)
-	private LocalDate pubslishingYear;
-	
+	private Integer pubslishingYear;
+
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, mappedBy = "bookExample")
 	private Set<Usage> userActions;
-	
+
 	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinTable(name = "BOOK_EXAMPLE_BOOK", joinColumns = @JoinColumn(name = "BOOK_EXAMPLE_ID"), inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
 	private Book book;
-
 }

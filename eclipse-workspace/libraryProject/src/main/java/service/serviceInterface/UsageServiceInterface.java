@@ -4,12 +4,12 @@ import entities.Usage;
 
 public interface UsageServiceInterface {
 	
-	void createUsage(Usage usage);
+	void create(Usage usage);
 
-	Usage getUsageById(Long usage_id);
+	Usage getById(Long usage_id);
 
-	void updateUsageById();
+	void updateById();
 
-	void deleteUsageById(Long usage_id);
+	void deleteById(Long usage_id);
 
 }

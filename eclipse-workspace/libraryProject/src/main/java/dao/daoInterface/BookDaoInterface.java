@@ -7,17 +7,24 @@ import entities.Book;
 
 public interface BookDaoInterface {
 
-	void addBook(Book book);
+	int MAX_DAYS_ALLOWED_TO_READ_BOOK = 14;
+	int YEAR_OF_UKRAINE_STATE_INDEPENDENCE = 1991;
 
-	Book fetchBookById(Long book_id);
+	void add(Book book);
 
-	void updateBookById();
+	Book fetchById(Long book_id);
 
-	void deleteBookById(Long book_id);
+	void updateById();
 
-	Optional<Book> getBookById(Long book_id);
+	void deleteById(Long book_id);
 
-	List<Book> getAllBooks();
+	Optional<Book> getById(Long book_id);
+
+	List<Book> getAll();
+
+	List<Book> getBookByAuthorId(List<Long> authorIds);
+
+	List<Book> getBookByCoauthorId(List<Long> authorIds);
 
 	Optional<Book> getBooksByNameIfInStorage(String name);
 
