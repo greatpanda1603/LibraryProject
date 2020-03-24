@@ -17,5 +17,10 @@ public interface BookExampleDaoInterface {
 	Optional<BookExample> getById(Long bookExample_id);
 
 	List<BookExample> getAll();
-
+	
+	List<BookExample> getBookExamplesByBookName(String bookName);
+	
+	List<BookExample> getBookExamplesByBookNameWhichAreAvailable(String bookName);
+	
+	List<BookExample> getBookExamplesByBookNameWhichWereTaken(String bookName);
 }

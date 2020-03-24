@@ -22,10 +22,16 @@ public interface BookDaoInterface {
 
 	List<Book> getAll();
 
-	List<Book> getBookByAuthorId(List<Long> authorIds);
+	List<Book> getBookByAuthor(String firstName, String lastName);
 
-	List<Book> getBookByCoauthorId(List<Long> authorIds);
+	List<Book> getBookByCoauthor(String firstName, String lastName);
 
+	Integer getAverageAgeOfUsersByBook();
+
+
+
+	
+	
 	Optional<Book> getBooksByNameIfInStorage(String name);
 
 	List<Book> getAllBooksPublishedAfterUkraineProclaimedIndependence();

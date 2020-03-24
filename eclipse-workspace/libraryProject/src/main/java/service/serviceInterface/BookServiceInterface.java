@@ -14,10 +14,14 @@ public interface BookServiceInterface {
 
 	void deleteById(Long book_id);
 	
-	List<Book> getBookByAuthorId(List<Long> authorIds);
+	List<Book> getBookByAuthor(String firstName, String lastName);
 	
-	List<Book> getBookByCoauthorId(List<Long> authorIds);
+	List<Book> getBookByCoauthor(String firstName, String lastName);
 	
-	List<Book> getAllBooksPublishedAfterUkraineProclaimedIndependence();
+	Integer getAllBooksPublishedAfterUkraineProclaimedIndependence();
+	
+	
+	
+	
 
 }

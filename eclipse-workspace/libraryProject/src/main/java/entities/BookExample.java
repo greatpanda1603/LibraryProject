@@ -27,4 +27,8 @@ public class BookExample {
 	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinTable(name = "BOOK_EXAMPLE_BOOK", joinColumns = @JoinColumn(name = "BOOK_EXAMPLE_ID"), inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
 	private Book book;
+	
+	public String toString() {
+		return "The book example published in " + pubslishingYear;
+	}
 }

@@ -16,8 +16,6 @@ public interface AuthorDaoInterface {
 
 	Optional<Author> getById(Long author_id);
 	
-	List<Long> getIdByName(String firstName, String lastName);
-
 	List<Author> getAll();
 
 }

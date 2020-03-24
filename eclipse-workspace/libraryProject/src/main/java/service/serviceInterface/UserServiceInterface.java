@@ -1,6 +1,9 @@
 package service.serviceInterface;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import entities.Book;
 import entities.User;
 
 public interface UserServiceInterface {
@@ -15,6 +18,16 @@ public interface UserServiceInterface {
 
 	Double getAverageUsersAge();
 	
+	Double getAverageAgeOfUsersByAuthor(String firstName, String lastName);
+	
+	Double getAverageAgeOfUsersByBook(String bookName);
+	
 	Double getAverageNumOfUserActivities();
+	
+	List<Book> getUserReadingHistory(String userName);
+	
+	List<Book> getBooksUserIsCurrentlyReading(String userName);
+	
+	Integer getNumOfDaysUserIsUsingLibrary(String userName);
 
 }

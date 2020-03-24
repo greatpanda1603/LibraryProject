@@ -2,8 +2,9 @@ package service.serviceInterfaceImplementation;
 
 import java.time.LocalDate;
 import java.util.List;
-
+import java.time.temporal.ChronoUnit;
 import dao.daoInterfaceImplementation.UserDao;
+import entities.Book;
 import entities.User;
 import service.serviceInterface.UserServiceInterface;
 
@@ -33,24 +34,39 @@ public class UserService implements UserServiceInterface {
 
 	@Override
 	public Double getAverageUsersAge() {
-		List<User> users = new UserDao().getAll();
-		Double sumOfAges = 0.0d;
-		Double averageUsersAge;
-		for (User user : users) {
-			sumOfAges += user.getUserAge();
-		}
-		averageUsersAge = sumOfAges / users.size();
-		return averageUsersAge;
+		return new UserDao().getAverageUsersAge();
 	}
-	
+
 	public Double getAverageNumOfUserActivities() {
-//		List<User> users = new UserDao().getAll();
-//		Double sumOfAges = 0.0d;
-//		Double averageUsersAge;
-//		for (User user : users) {
-//			sumOfAges += user.getUserAge();
-//		}
-//		averageUsersAge = sumOfAges / users.size();
+
 		return null;
+	}
+
+	@Override
+	public Double getAverageAgeOfUsersByAuthor(String firstName, String lastName) {
+		return new UserDao().getAverageAgeOfUsersByAuthor(firstName, lastName);
+
+	}
+
+	@Override
+	public Double getAverageAgeOfUsersByBook(String bookName) {
+		return new UserDao().getAverageAgeOfUsersByBook(bookName);
+	}
+
+	@Override
+	public List<Book> getUserReadingHistory(String userName) {
+		return new UserDao().getUserReadingHistory(userName);
+	}
+
+	@Override
+	public List<Book> getBooksUserIsCurrentlyReading(String userName) {
+		return new UserDao().getBooksUserIsCurrentlyReading(userName);
+	}
+
+	@Override
+	public Integer getNumOfDaysUserIsUsingLibrary(String userName) {
+		Integer days = (int) ChronoUnit.DAYS.between(new UserDao().getUserRegistrationDateByName(userName),
+				LocalDate.now());
+		return days;
 	}
 }

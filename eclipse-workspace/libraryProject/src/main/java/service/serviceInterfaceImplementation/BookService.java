@@ -31,21 +31,21 @@ public class BookService implements BookServiceInterface {
 	}
 
 	@Override
-	public List<Book> getBookByAuthorId(List<Long> authorIds) {
-		List<Book> books = new BookDao().getBookByAuthorId(authorIds);
+	public List<Book> getBookByAuthor(String firstName, String lastName) {
+		List<Book> books = new BookDao().getBookByAuthor(firstName, lastName);
 		return books;
 	}
 
 	@Override
-	public List<Book> getBookByCoauthorId(List<Long> authorIds) {
-		List<Book> books = new BookDao().getBookByCoauthorId(authorIds);
+	public List<Book> getBookByCoauthor(String firstName, String lastName) {
+		List<Book> books = new BookDao().getBookByCoauthor(firstName, lastName);
 		return books;
 	}
 
 	@Override
-	public List<Book> getAllBooksPublishedAfterUkraineProclaimedIndependence() {
+	public Integer getAllBooksPublishedAfterUkraineProclaimedIndependence() {
 		List<Book> books = new BookDao().getAllBooksPublishedAfterUkraineProclaimedIndependence();
-		return books;
+		return books.size();
 	}
 
 }

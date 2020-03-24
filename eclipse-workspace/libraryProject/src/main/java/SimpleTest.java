@@ -3,9 +3,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.*;
 import entities.*;
-import service.serviceInterfaceImplementation.AuthorService;
-import service.serviceInterfaceImplementation.BookService;
-import service.serviceInterfaceImplementation.UserService;
+import service.serviceInterfaceImplementation.*;
 import util.HibernateUtil;
 
 public class SimpleTest {
@@ -83,28 +81,16 @@ public class SimpleTest {
 		bookExample9.setPubslishingYear(2006);
 		bookExample10.setPubslishingYear(2009);
 
-		Set<BookExample> bookExamples1 = new HashSet<BookExample>();
-		bookExamples1.add(bookExample7);
-		bookExamples1.add(bookExample8);
-		bookExamples1.add(bookExample9);
-		bookExamples1.add(bookExample10);
-
-		Set<BookExample> bookExamples2 = new HashSet<BookExample>();
-		bookExamples2.add(bookExample6);
-
-		Set<BookExample> bookExamples3 = new HashSet<BookExample>();
-		bookExamples3.add(bookExample1);
-		bookExamples3.add(bookExample2);
-
-		Set<BookExample> bookExamples4 = new HashSet<BookExample>();
-		bookExamples4.add(bookExample3);
-		bookExamples4.add(bookExample4);
-		bookExamples4.add(bookExample5);
-
-		book1.setBookExamples(bookExamples1);
-		book2.setBookExamples(bookExamples3);
-		book3.setBookExamples(bookExamples4);
-		book4.setBookExamples(bookExamples2);
+		bookExample1.setBook(book2);
+		bookExample2.setBook(book2);
+		bookExample3.setBook(book3);
+		bookExample4.setBook(book3);
+		bookExample5.setBook(book3);
+		bookExample6.setBook(book4);
+		bookExample7.setBook(book1);
+		bookExample8.setBook(book1);
+		bookExample9.setBook(book1);
+		bookExample10.setBook(book1);
 
 		User user1 = new User();
 		user1.setUserName("OOO");
@@ -143,8 +129,24 @@ public class SimpleTest {
 
 		Usage usage3 = new Usage();
 		usage3.setTakeDate(LocalDate.parse("2019-12-19"));
+		usage3.setReturnDate(LocalDate.parse("2020-01-05"));
 		usage3.setUser(user3);
 		usage3.setBookExample(bookExample4);
+
+		Usage usage4 = new Usage();
+		usage4.setTakeDate(LocalDate.parse("2018-02-14"));
+		usage4.setUser(user5);
+		usage4.setBookExample(bookExample6);
+
+		Usage usage5 = new Usage();
+		usage5.setTakeDate(LocalDate.parse("2020-02-14"));
+		usage5.setUser(user4);
+		usage5.setBookExample(bookExample4);
+
+		Usage usage6 = new Usage();
+		usage6.setTakeDate(LocalDate.parse("2020-03-15"));
+		usage6.setUser(user3);
+		usage6.setBookExample(bookExample1);
 
 		session.save(book1);
 		session.save(book2);
@@ -158,20 +160,51 @@ public class SimpleTest {
 		session.save(usage1);
 		session.save(usage2);
 		session.save(usage3);
+		session.save(usage4);
+		session.save(usage5);
+		session.save(usage6);
+		session.save(bookExample1);
+		session.save(bookExample2);
+		session.save(bookExample3);
+		session.save(bookExample4);
+		session.save(bookExample5);
+		session.save(bookExample6);
+		session.save(bookExample7);
+		session.save(bookExample8);
+		session.save(bookExample9);
+		session.save(bookExample10);
 
 		session.getTransaction().commit();
 
-//		UserService userService = new UserService();
-//		System.out.println(userService.getAverageUsersAge());
-//
-//		AuthorService authorService = new AuthorService();
-//
-//		BookService bookService = new BookService();
-//		System.out.println(bookService.getBookByAuthorId(authorService.getIdByName("Stephen", "Hawking")));
-//
-//		System.out.println(bookService.getBookByCoauthorId(authorService.getIdByName("Stephen", "Hawking")));
-//
-//		System.out.println(bookService.getAllBooksPublishedAfterUkraineProclaimedIndependence());
+		UserService userService = new UserService();
+
+		System.out.println(userService.getAverageUsersAge());
+
+		System.out.println(userService.getUserReadingHistory("RRR"));
+
+		System.out.println(userService.getBooksUserIsCurrentlyReading("RRR"));
+
+		System.out.println(userService.getNumOfDaysUserIsUsingLibrary("RRR"));
+
+		BookService bookService = new BookService();
+
+		System.out.println(bookService.getBookByAuthor("Taras", "Shevchenko"));
+
+		System.out.println(bookService.getBookByCoauthor("Leonard", "Mlodinow"));
+
+		System.out.println(bookService.getAllBooksPublishedAfterUkraineProclaimedIndependence());
+
+		System.out.println(userService.getAverageAgeOfUsersByAuthor("Stephen", "Hawking"));
+
+		System.out.println(userService.getAverageAgeOfUsersByBook("A Brief History of Time"));
+
+		BookExampleService bookExampleService = new BookExampleService();
+
+		System.out.println(bookExampleService.getNumOfBookExamplesByBookName("Kobzar"));
+
+		bookExampleService.getBookExamplesByBookNameWhichAreAvailable("A Brief History of Time");
+
+		bookExampleService.getBookExamplesByBookNameWhichWereTaken("A Brief History of Time");
 
 	}
 }

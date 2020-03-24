@@ -19,21 +19,21 @@ public interface UserDaoInterfcae {
 	Optional<User> getById(Long user_id);
 
 	List<User> getAll();
+	
+	Double getAverageUsersAge();
+	
+	Double getAverageAgeOfUsersByAuthor(String firstName, String lastName);
+	
+	Double getAverageAgeOfUsersByBook(String bookName);
+	
+	List<Book> getUserReadingHistory(String userName);
+	
+	List<Book> getBooksUserIsCurrentlyReading(String userName);	
 
-	List<Book> getUserReadingHistory(Long user_id);
+	LocalDate getUserRegistrationDateByName (String userName);
 
-	List<Book> getBooksUserIsCurrentlyReading(Long user_id);
-
-	Integer getNumOfDaysUserIsUsingLibrary(Long user_id);
-
-	List<User> getDebtors();
-
-	Integer getAverageNumOfDaysUsersAreUsingLibrary(List<User> users);
+	List<User> getDebtors();	
 
 	Integer getAverageNumOfOrdersUsersMadeDuringThePeriod(List<User> users, LocalDate fromDate, LocalDate untilDate);
-
-	Integer getAverageUsersAgeByBook(Long book_id);
-
-	Integer getAverageUsersAgeByAuthor(Long author_id);
 
 }
